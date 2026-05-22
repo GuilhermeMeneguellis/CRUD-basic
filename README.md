@@ -31,6 +31,12 @@ copy .env.example .env
 docker compose up -d --build
 ```
 
+Com Docker, a API fica publicada na porta configurada em `HOST_PORT`.
+Por padrao:
+
+- API: `http://localhost:3002`
+- Swagger: `http://localhost:3002/docs`
+
 Ver logs:
 
 ```bash
@@ -61,7 +67,13 @@ docker compose down -v
 docker compose up -d --build
 ```
 
-O `docker-compose.yml` nao publica a porta `27017` do MongoDB. Na VPS, libere apenas a porta da API, por exemplo `3000`, ou coloque a API atras de Nginx/Caddy com HTTPS.
+O `docker-compose.yml` nao publica a porta `27017` do MongoDB. Na VPS, libere apenas a porta da API, por exemplo `3002`, ou coloque a API atras de Nginx/Caddy com HTTPS.
+
+Se a porta `3002` tambem estiver ocupada no servidor, altere somente `HOST_PORT` no `.env`, por exemplo:
+
+```env
+HOST_PORT=3003
+```
 
 ## Recursos
 
