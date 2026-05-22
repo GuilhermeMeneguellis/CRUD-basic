@@ -1,0 +1,405 @@
+{
+  "info": {
+    "_postman_id": "0de25b34-2375-4a5f-a5ac-37ce75025a77",
+    "name": "Restaurant API Nest",
+    "description": "Collection para testar uma API Nest.js de restaurante com GET, POST, PUT, PATCH, DELETE, HEAD e OPTIONS.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "customerId",
+      "value": "cus_0001"
+    },
+    {
+      "key": "tableId",
+      "value": "tbl_0003"
+    },
+    {
+      "key": "menuItemId",
+      "value": "mit_0005"
+    },
+    {
+      "key": "orderId",
+      "value": "ord_0008"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET API status",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Request Lab - HTTP methods",
+      "item": [
+        {
+          "name": "GET request-lab",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/request-lab?search=mesa"
+          }
+        },
+        {
+          "name": "POST request-lab",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Teste POST\",\n  \"description\": \"Criando algo novo\"\n}"
+            },
+            "url": "{{baseUrl}}/request-lab"
+          }
+        },
+        {
+          "name": "PUT request-lab",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Registro completo\",\n  \"active\": true\n}"
+            },
+            "url": "{{baseUrl}}/request-lab/abc123"
+          }
+        },
+        {
+          "name": "PATCH request-lab",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": false\n}"
+            },
+            "url": "{{baseUrl}}/request-lab/abc123"
+          }
+        },
+        {
+          "name": "DELETE request-lab",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/request-lab/abc123"
+          }
+        },
+        {
+          "name": "HEAD request-lab",
+          "request": {
+            "method": "HEAD",
+            "url": "{{baseUrl}}/request-lab/ping"
+          }
+        },
+        {
+          "name": "OPTIONS request-lab",
+          "request": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/request-lab/methods"
+          }
+        },
+        {
+          "name": "ALL echo as POST",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classroom\": \"api-rest\"\n}"
+            },
+            "url": "{{baseUrl}}/request-lab/echo?source=postman"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "GET customers",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/customers"
+          }
+        },
+        {
+          "name": "GET customer by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/customers/{{customerId}}"
+          }
+        },
+        {
+          "name": "POST customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Carla Martins\",\n  \"email\": \"carla.martins@email.com\",\n  \"phone\": \"+55 31 97777-7777\",\n  \"notes\": \"Aniversario no fim de semana\"\n}"
+            },
+            "url": "{{baseUrl}}/customers"
+          }
+        },
+        {
+          "name": "PUT customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Souza Silva\",\n  \"email\": \"ana.silva@email.com\",\n  \"phone\": \"+55 11 90000-0000\",\n  \"notes\": \"Atualizacao completa por PUT\"\n}"
+            },
+            "url": "{{baseUrl}}/customers/{{customerId}}"
+          }
+        },
+        {
+          "name": "PATCH customer",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Atualizacao parcial por PATCH\"\n}"
+            },
+            "url": "{{baseUrl}}/customers/{{customerId}}"
+          }
+        },
+        {
+          "name": "DELETE customer",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/customers/{{customerId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tables",
+      "item": [
+        {
+          "name": "GET tables",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tables"
+          }
+        },
+        {
+          "name": "POST table",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Mesa 10\",\n  \"seats\": 6,\n  \"status\": \"available\",\n  \"location\": \"Mezanino\"\n}"
+            },
+            "url": "{{baseUrl}}/tables"
+          }
+        },
+        {
+          "name": "PATCH table status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"occupied\"\n}"
+            },
+            "url": "{{baseUrl}}/tables/{{tableId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Menu Items",
+      "item": [
+        {
+          "name": "GET menu-items",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/menu-items"
+          }
+        },
+        {
+          "name": "GET menu-items by category",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/menu-items?category=main"
+          }
+        },
+        {
+          "name": "POST menu-item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Suco de laranja\",\n  \"description\": \"Suco natural 300ml\",\n  \"category\": \"drink\",\n  \"price\": 12.5,\n  \"available\": true\n}"
+            },
+            "url": "{{baseUrl}}/menu-items"
+          }
+        },
+        {
+          "name": "PATCH menu-item availability",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"available\": false\n}"
+            },
+            "url": "{{baseUrl}}/menu-items/{{menuItemId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "GET orders",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/orders"
+          }
+        },
+        {
+          "name": "GET orders filtered by status",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/orders?status=open"
+          }
+        },
+        {
+          "name": "HEAD order exists",
+          "request": {
+            "method": "HEAD",
+            "url": "{{baseUrl}}/orders/{{orderId}}"
+          }
+        },
+        {
+          "name": "POST order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"tableId\": \"{{tableId}}\",\n  \"items\": [\n    {\n      \"menuItemId\": \"{{menuItemId}}\",\n      \"quantity\": 2,\n      \"notes\": \"Sem cebola\"\n    }\n  ],\n  \"notes\": \"Enviar entrada primeiro\"\n}"
+            },
+            "url": "{{baseUrl}}/orders"
+          }
+        },
+        {
+          "name": "PUT order",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"tableId\": \"{{tableId}}\",\n  \"items\": [\n    {\n      \"menuItemId\": \"{{menuItemId}}\",\n      \"quantity\": 1\n    }\n  ],\n  \"notes\": \"Pedido substituido por PUT\"\n}"
+            },
+            "url": "{{baseUrl}}/orders/{{orderId}}"
+          }
+        },
+        {
+          "name": "PATCH order status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"preparing\"\n}"
+            },
+            "url": "{{baseUrl}}/orders/{{orderId}}/status"
+          }
+        },
+        {
+          "name": "DELETE order",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/orders/{{orderId}}"
+          }
+        }
+      ]
+    }
+  ]
+}
